@@ -1,5 +1,8 @@
 import React from 'react';
+import axios from 'axios';
 
+const API = 'http://stage.thoth-station.ninja/api/v1/python-package-index';
+axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 
 class PackageIndices extends React.Component {
     constructor(props) {
@@ -14,19 +17,11 @@ class PackageIndices extends React.Component {
     componentDidMount() {
         this.setState({ package_indices_is_loading: true });
 
-        fetch('http://stage.thoth-station.ninja/api/v1/python-package-index', { mode: 'no-cors' })
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                } else {
-                    throw new Error('Something went wrong ...');
-                }
+        axios.get(API)
+            .then(result => this.setState({
+                package_indices: result.data, package_indices_is_loading: false
             })
-            .then((data) => {
-                this.setState({
-                    package_indices: data, package_indices_is_loading: false
-                })
-            })
+            )
             .catch(error => this.setState({ error, isLoading: false }));
     }
 
@@ -51,7 +46,7 @@ class PackageIndices extends React.Component {
 
                 <ul>
                     {package_indices.map(the_index =>
-                        <PackageIndex url={the_index.url} />
+                        <PackageIndex key={the_index.url.toString()} url={the_index.url.toString()} />
                     )}
                 </ul>
             </div>
@@ -61,7 +56,7 @@ class PackageIndices extends React.Component {
 
 function PackageIndex(props) {
     return (
-        <div>{props.url}</div>
+        <li key={props.key}>{props.url}</li>
     );
 }
 

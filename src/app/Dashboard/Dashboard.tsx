@@ -10,7 +10,7 @@ const Dashboard: React.FunctionComponent<any> = (props) => {
 
             <div><PackageIndices /></div>
 
-            <Bullseye><div>lame</div></Bullseye>
+            <Bullseye><div>Bullseye</div></Bullseye>
 
         </PageSection>
     );

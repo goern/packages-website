@@ -31,7 +31,7 @@ const Layout: React.FunctionComponent<IAppLayout> = ({ children }) => {
     };
     const Header = (
         <PageHeader
-            logo="Thoth-Station"
+            logo="The Thoth Package Background Check"
             logoProps={logoProps}
             showNavToggle={false}
             isNavOpen={isNavOpen}
