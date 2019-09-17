@@ -6,7 +6,8 @@
     "scripts": {
         "lint": "tslint -c ./tslint.json --project .",
         "test": "jest",
-        "start": "webpack-dev-server --hot --color --progress --info=true --config webpack.dev.js"
+        "start": "webpack-dev-server --hot --color --progress --info=true --config webpack.dev.js",
+        "build": "webpack --config webpack.prod.js"
     },
     "author": "",
     "license": "GPL-3.0-or-later",
@@ -27,6 +28,8 @@
         "file-loader": "^4.2.0",
         "html-webpack-plugin": "^3.2.0",
         "jest": "^24.9.0",
+        "mini-css-extract-plugin": "^0.8.0",
+        "optimize-css-assets-webpack-plugin": "^5.0.3",
         "react": "^16.9.0",
         "react-axe": "^3.3.0",
         "react-dom": "^16.9.0",
