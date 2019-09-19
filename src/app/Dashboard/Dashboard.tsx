@@ -2,6 +2,8 @@ import * as React from 'react';
 import { PageSection, Title, Bullseye } from '@patternfly/react-core';
 import { PackageToolbar } from '@app/PackageToolbar/PackageToolbar';
 import { PackageIndices } from '@app/PackageIndex/PackageIndex';
+import { RuntimeEnvironments } from '@app/RuntimeEnvironment/RuntimeEnvironment';
+
 
 const Dashboard: React.FunctionComponent<any> = (props) => {
     return (

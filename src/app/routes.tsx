@@ -6,6 +6,7 @@ import { Dashboard } from '@app/Dashboard/Dashboard';
 import { NotFound } from '@app/NotFound/NotFound';
 import { accessibleRouteChangeHandler, useDocumentTitle } from '@app/Utilities/Utilities';
 import { LastLocationProvider, useLastLocation } from 'react-router-last-location';
+import { RuntimeEnvironments } from './RuntimeEnvironment/RuntimeEnvironment';
 
 let routeFocusTimer: number;
 
@@ -27,6 +28,14 @@ const routes: IRoute[] = [
     label: 'Dashboard',
     path: '/',
     title: 'Package Background Check Results'
+  },
+  {
+    component: RuntimeEnvironments,
+    exact: true,
+    icon: null,
+    label: 'RuntimeEnvironments',
+    path: '/runtime_environments',
+    title: 'RuntimeEnvironments'
   }
 ];
 

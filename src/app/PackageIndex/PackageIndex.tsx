@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-const API = 'http://stage.thoth-station.ninja/api/v1/python-package-index';
+const API = 'http://test.thoth-station.ninja/api/v1/python-package-index';
 axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 
 class PackageIndices extends React.Component {
@@ -22,7 +22,7 @@ class PackageIndices extends React.Component {
                 package_indices: result.data, package_indices_is_loading: false
             })
             )
-            .catch(error => this.setState({ error, isLoading: false }));
+            .catch(error => this.setState({ error, package_indices_is_loading: false }));
     }
 
     render() {
