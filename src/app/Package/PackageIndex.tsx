@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'axios';
 
 const API = 'http://test.thoth-station.ninja/api/v1/python-package-index';
-axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 
 class PackageIndices extends React.Component {
     constructor(props) {
@@ -29,7 +28,8 @@ class PackageIndices extends React.Component {
         const { package_indices, package_indices_is_loading, error } = this.state;
 
         if (error) {
-            return <p>{error.message}</p>;
+            console.log(error)
+            return <p></p>;
         }
 
         if (package_indices_is_loading) {
@@ -44,9 +44,9 @@ class PackageIndices extends React.Component {
             <div role="package_index">
                 <h2>all the indices we monitor</h2>
 
-                <ul>
+                <ul role="pypi-index">
                     {package_indices.map(the_index =>
-                        <PackageIndex key={the_index.url.toString()} url={the_index.url.toString()} />
+                        <li key={the_index.url.toString()}>{the_index.url.toString()}</li>
                     )}
                 </ul>
             </div>
@@ -54,10 +54,5 @@ class PackageIndices extends React.Component {
     }
 }
 
-function PackageIndex(props) {
-    return (
-        <li key={props.key}>{props.url}</li>
-    );
-}
 
-export { PackageIndices, PackageIndex };
+export { PackageIndices };

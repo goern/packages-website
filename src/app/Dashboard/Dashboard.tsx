@@ -1,19 +1,21 @@
 import * as React from 'react';
-import { PageSection, Title, Bullseye } from '@patternfly/react-core';
+import { PageSection, Title, Bullseye, Grid, GridItem } from '@patternfly/react-core';
 import { PackageToolbar } from '@app/PackageToolbar/PackageToolbar';
-import { PackageIndices } from '@app/PackageIndex/PackageIndex';
+import { PackageIndices } from '@app/Package/PackageIndex';
+import { PackageList } from '@app/Package/Package';
 import { RuntimeEnvironments } from '@app/RuntimeEnvironment/RuntimeEnvironment';
 
 
 const Dashboard: React.FunctionComponent<any> = (props) => {
     return (
         <PageSection>
-            <Title size="xl">Package Background Check Results</Title>
+            <Bullseye>
+                <Grid>
+                    <GridItem span={12}><div><PackageIndices /></div></GridItem>
 
-            <div><PackageIndices /></div>
-
-            <Bullseye><div>Bullseye</div></Bullseye>
-
+                    <GridItem span={12}><div><PackageList /></div></GridItem>
+                </Grid>
+            </Bullseye>
         </PageSection>
     );
 }
