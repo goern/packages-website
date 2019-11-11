@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-const API = 'http://test.thoth-station.ninja/api/v1/python-package-index';
+const API = 'https://stage.thoth-station.ninja/api/v1/python-package-index';
 
 class PackageIndices extends React.Component {
     constructor(props) {
@@ -27,6 +27,8 @@ class PackageIndices extends React.Component {
     render() {
         const { package_indices, package_indices_is_loading, error } = this.state;
 
+        console.log(package_indices)
+
         if (error) {
             console.log(error)
             return <p></p>;
@@ -42,8 +44,7 @@ class PackageIndices extends React.Component {
 
         return (
             <div role="package_index">
-                <h2>all the indices we monitor</h2>
-
+                <p>{package_indices.length} in total</p>
                 <ul role="pypi-index">
                     {package_indices.map(the_index =>
                         <li key={the_index.url.toString()}>{the_index.url.toString()}</li>

@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-const API = 'http://test.thoth-station.ninja/api/v1/python-package-index';
+const API = 'https://stage.thoth-station.ninja/api/v1/python-package-index';
 
 class PackageList extends React.Component {
     constructor(props) {
@@ -29,7 +29,7 @@ class PackageList extends React.Component {
 
         if (error) {
             console.log(error)
-            return <p></p>;
+            return <p>CORS problem!</p>;
         }
 
         if (packages_list_is_loading) {
@@ -42,8 +42,6 @@ class PackageList extends React.Component {
 
         return (
             <div role="packages_index">
-                <h2>all the packages</h2>
-
                 <ul role="py-package-index">
                 </ul>
             </div>
