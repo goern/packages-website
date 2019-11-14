@@ -88,3 +88,4 @@ typings/
 .dynamodb/
 
 **__snapshots__**
+dist
