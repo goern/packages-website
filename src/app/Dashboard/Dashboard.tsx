@@ -13,8 +13,7 @@ const Dashboard: React.FunctionComponent<any> = (props) => {
         <PageSection>
             <Bullseye>
                 <Grid>
-                    <GridItem span={12}><h1>Knowledge Metrics</h1><div><KnowledgeGraphMetrics /></div></GridItem>
-
+                    <GridItem span={12}><h1>PackageIndex</h1><div><PackageIndices /></div></GridItem>
                 </Grid>
             </Bullseye>
         </PageSection >
